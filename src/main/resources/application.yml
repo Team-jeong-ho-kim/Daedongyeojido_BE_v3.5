@@ -13,7 +13,7 @@ spring:
 
     url: ${DB_URL}
     username: ${DB_NAME}
-    password: ${}
+    password: ${DB_PASSWORD}
 
   #
   servlet:
@@ -30,3 +30,18 @@ spring:
 redis:
   host: localhost
   port: 6379
+
+cloud:
+  aws:
+    s3:
+      bucket: ${BUCKET_NAME}
+      post-images : ${POST_IMAGES_FOLDER}
+      preview-images : ${PREVIEW_IMAGES_FOLDER}
+      profile-images: ${PROFILE_IMAGES_FOLDER}
+    region:
+      static: ${AWS_REGION}
+    stack:
+      auto: false
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
