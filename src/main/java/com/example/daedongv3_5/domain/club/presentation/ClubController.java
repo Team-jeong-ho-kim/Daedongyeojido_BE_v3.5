@@ -19,6 +19,7 @@ import java.util.List;
 public class ClubController {
     private final CreateClubService createClubService;
     private final QueryAllClubService queryAllClubService;
+    private final UpdateClubService updateClubService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -31,4 +32,11 @@ public class ClubController {
     public List<ClubListResponse> queryAllClub() {
         return queryAllClubService.queryAllClub();
     }
+
+    @PatchMapping("/{clubName}")
+    @ResponseStatus(HttpStatus.OK)
+    public void udpateClub(@PathVariable String clubName, @RequestBody UpdateClubRequest request) {
+        updateClubService.updateClub(clubName, request);
+    }
+
 }
