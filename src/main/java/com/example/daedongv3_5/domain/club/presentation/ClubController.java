@@ -20,6 +20,7 @@ public class ClubController {
     private final CreateClubService createClubService;
     private final QueryAllClubService queryAllClubService;
     private final UpdateClubService updateClubService;
+    private final DeleteClubService deleteClubService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -39,4 +40,9 @@ public class ClubController {
         updateClubService.updateClub(clubName, request);
     }
 
+    @DeleteMapping("/{clubName}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteClub(@PathVariable String clubName) {
+        deleteClubService.deleteClub(clubName);
+    }
 }
