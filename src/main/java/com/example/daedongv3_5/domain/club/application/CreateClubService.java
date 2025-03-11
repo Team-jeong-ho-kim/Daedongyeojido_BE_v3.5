@@ -17,7 +17,7 @@ public class CreateClubService {
         clubRepository.save(Club.builder()
                         .clubName(request.getClubName())
                         .introduction(request.getIntroduction())
-                        .clubUser(request.getClubUser())
+                        .clubMember(request.getClubMember())
                         .major(request.getMajor())
                 .build());
     }
