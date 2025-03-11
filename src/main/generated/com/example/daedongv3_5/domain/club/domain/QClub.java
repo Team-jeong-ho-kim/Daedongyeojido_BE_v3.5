@@ -21,9 +21,12 @@ public class QClub extends EntityPathBase<Club> {
 
     public final com.example.daedongv3_5.global.entity.QBaseIdEntity _super = new com.example.daedongv3_5.global.entity.QBaseIdEntity(this);
 
+    public final StringPath clubMember = createString("clubMember");
+
     public final StringPath clubName = createString("clubName");
 
-    public final StringPath clubUser = createString("clubUser");
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final NumberPath<Long> id = _super.id;

@@ -19,6 +19,8 @@ public class QBaseIdEntity extends EntityPathBase<BaseIdEntity> {
 
     public static final QBaseIdEntity baseIdEntity = new QBaseIdEntity("baseIdEntity");
 
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public QBaseIdEntity(String variable) {
