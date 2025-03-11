@@ -2,7 +2,10 @@ package com.example.daedongv3_5.domain.club.domain;
 
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import com.example.daedongv3_5.global.entity.BaseIdEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,12 +18,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Club extends BaseIdEntity {
 
+    @Column(nullable = false)
     private String clubName;
 
+    @Column(nullable = false, length = 300)
     private String introduction;
 
     private String clubUser;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Major major;
-
 }
