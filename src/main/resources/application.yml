@@ -15,7 +15,6 @@ spring:
     username: ${DB_NAME}
     password: ${DB_PASSWORD}
 
-  #
   servlet:
     multipart:
       max-file-size: 10MB
@@ -35,9 +34,8 @@ cloud:
   aws:
     s3:
       bucket: ${BUCKET_NAME}
-      post-images : ${POST_IMAGES_FOLDER}
-      preview-images : ${PREVIEW_IMAGES_FOLDER}
       profile-images: ${PROFILE_IMAGES_FOLDER}
+      club-images: ${CLUB_IMAGES_FOLDER}
     region:
       static: ${AWS_REGION}
     stack:
