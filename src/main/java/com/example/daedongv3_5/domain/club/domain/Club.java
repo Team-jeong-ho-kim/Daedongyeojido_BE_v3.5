@@ -24,9 +24,16 @@ public class Club extends BaseIdEntity {
     @Column(nullable = false, length = 300)
     private String introduction;
 
-    private String clubUser;
+    private String clubMember;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Major major;
+
+    public void update(String clubName, String introduction, String clubMember, Major major) {
+        this.clubName = clubMember;
+        this.introduction = introduction;
+        this.clubMember = clubMember;
+        this.major = major;
+    }
 }
