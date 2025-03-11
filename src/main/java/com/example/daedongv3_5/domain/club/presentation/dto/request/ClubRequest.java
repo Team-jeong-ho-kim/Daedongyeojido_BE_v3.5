@@ -14,7 +14,7 @@ public class ClubRequest {
 
     private String introduction;
 
-    private String clubUser;
+    private String clubMember;
 
     @Enumerated(EnumType.STRING)
     private Major major;
