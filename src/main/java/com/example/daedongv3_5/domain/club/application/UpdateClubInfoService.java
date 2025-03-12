@@ -15,8 +15,8 @@ public class UpdateClubInfoService {
     private final ClubFacade clubFacade;
 
     @Transactional
-    public void updateClub(String clubName, UpdateClubRequest request) {
-        Club club = clubFacade.clubFacade(clubName);
+    public void updateClub(Long clubId, UpdateClubRequest request) {
+        Club club = clubFacade.clubFacade(clubId);
 
         club.update(
                 request.getClubName(),
