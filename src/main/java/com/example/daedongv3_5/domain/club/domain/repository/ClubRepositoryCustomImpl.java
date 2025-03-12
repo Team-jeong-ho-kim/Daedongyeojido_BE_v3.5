@@ -2,6 +2,7 @@ package com.example.daedongv3_5.domain.club.domain.repository;
 
 import com.example.daedongv3_5.domain.club.domain.QClub;
 import com.example.daedongv3_5.domain.club.presentation.dto.response.ClubListResponse;
+import com.example.daedongv3_5.domain.club.presentation.dto.response.ClubResponse;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,14 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
                 .from(qClub)
                 .orderBy(qClub.createdAt.desc())
                 .fetch();
+    }
+
+    @Override
+    public ClubResponse findClubInfoByClubName(String clubName) {
+        return jpaQueryFactory.select(Projections.constructor(ClubResponse.class, qClub.clubName, qClub.clubMember, qClub.introduction, qClub.major))
+                .from(qClub)
+                .where(qClub.clubName.eq(clubName))
+                .fetchOne();
     }
 
 }
