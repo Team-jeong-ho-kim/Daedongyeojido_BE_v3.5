@@ -33,16 +33,16 @@ public class ClubController {
         return queryAllClubService.queryAllClub();
     }
 
-    @GetMapping("/{clubName}")
+    @GetMapping("/{clubId}")
     @ResponseStatus(HttpStatus.OK)
-    public ClubResponse queryClubInfo(@PathVariable String clubName) {
-        return queryClubInfoService.queryClubInfo(clubName);
+    public ClubResponse queryClubInfo(@PathVariable Long clubId) {
+        return queryClubInfoService.queryClubInfo(clubId);
     }
 
-    @PatchMapping("/{clubName}")
+    @PatchMapping("/{clubId}")
     @ResponseStatus(HttpStatus.OK)
-    public void udpateClub(@PathVariable String clubName, @RequestBody UpdateClubRequest request) {
-        updateClubInfoService.updateClub(clubName, request);
+    public void updateClubInfo(@PathVariable Long clubId, @RequestBody UpdateClubRequest request) {
+        updateClubInfoService.updateClub(clubId, request);
     }
 
     @DeleteMapping("/{clubName}")

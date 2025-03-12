@@ -13,9 +13,9 @@ public class QueryClubInfoService {
     private final ClubRepository clubRepository;
     private final ClubFacade clubFacade;
 
-    public ClubResponse queryClubInfo(String clubName) {
-        Club club = clubFacade.clubFacade(clubName);
+    public ClubResponse queryClubInfo(Long clubId) {
+        Club club = clubFacade.clubFacade(clubId);
 
-        return clubRepository.findClubInfoByClubName(clubName);
+        return clubRepository.findClubInfoByClubId(clubId);
     }
 }
