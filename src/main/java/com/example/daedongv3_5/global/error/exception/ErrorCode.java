@@ -42,6 +42,24 @@ public enum ErrorCode {
     LIKE_EXIST(409, "Like Exist."),
     CANNOT_DELETE_LIKE(409, "Cannot Delete Like."),
 
+    //feign
+    FEIGN_BAD_REQUEST(401, "Feign Bad Reqeust"),
+    FEIGN_UNAUTHORIZED_EXCEPTION(402, "Feign Unauthorized Exception"),
+    FEIGN_FORBIDDDEN_EXCEPTION(403, "Feign Forbidden Exception"),
+
+    XQUARE(503, "DSM-login 서비스에서 에러가 발생했습니다."),
+    LOGIN_FAILED(401, "로그인 정보를 다시 확인해주세요."),
+
+    FORBIDDEN(403, "접근 권한이 없는 유저입니다."),
+
+    // student
+    STUDENT_NOT_FOUND(404, "일치하는 학생을 찾을 수 없습니다."),
+
+    // teacher
+    TEACHER_NOT_FOUND(404, "일치하는 선생님을 찾을 수 없습니다."),
+
+
+
     //image
     FAIL_FILE(500, "파일 업로드 실패");
 
