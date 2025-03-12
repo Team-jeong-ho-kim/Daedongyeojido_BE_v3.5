@@ -17,17 +17,17 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
 
     @Override
     public List<ClubListResponse> findAllClub() {
-        return jpaQueryFactory.select(Projections.constructor(ClubListResponse.class, qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major, qClub.createdAt))
+        return jpaQueryFactory.select(Projections.constructor(ClubListResponse.class, qClub.id, qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major, qClub.createdAt))
                 .from(qClub)
                 .orderBy(qClub.createdAt.desc())
                 .fetch();
     }
 
     @Override
-    public ClubResponse findClubInfoByClubName(String clubName) {
-        return jpaQueryFactory.select(Projections.constructor(ClubResponse.class, qClub.clubName, qClub.clubMember, qClub.introduction, qClub.major))
+    public ClubResponse findClubInfoByClubId(Long clubId) {
+        return jpaQueryFactory.select(Projections.constructor(ClubResponse.class, qClub.id, qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major))
                 .from(qClub)
-                .where(qClub.clubName.eq(clubName))
+                .where(qClub.id.eq(clubId))
                 .fetchOne();
     }
 
