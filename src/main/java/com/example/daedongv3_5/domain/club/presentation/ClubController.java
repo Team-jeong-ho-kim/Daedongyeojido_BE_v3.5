@@ -1,12 +1,10 @@
 package com.example.daedongv3_5.domain.club.presentation;
 
-import com.example.daedongv3_5.domain.club.application.CreateClubService;
-import com.example.daedongv3_5.domain.club.application.DeleteClubService;
-import com.example.daedongv3_5.domain.club.application.QueryAllClubService;
-import com.example.daedongv3_5.domain.club.application.UpdateClubService;
+import com.example.daedongv3_5.domain.club.application.*;
 import com.example.daedongv3_5.domain.club.presentation.dto.request.ClubRequest;
 import com.example.daedongv3_5.domain.club.presentation.dto.request.UpdateClubRequest;
 import com.example.daedongv3_5.domain.club.presentation.dto.response.ClubListResponse;
+import com.example.daedongv3_5.domain.club.presentation.dto.response.ClubResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +17,9 @@ import java.util.List;
 public class ClubController {
     private final CreateClubService createClubService;
     private final QueryAllClubService queryAllClubService;
-    private final UpdateClubService updateClubService;
+    private final UpdateClubInfoService updateClubInfoService;
     private final DeleteClubService deleteClubService;
+    private final QueryClubInfoService queryClubInfoService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -28,16 +27,22 @@ public class ClubController {
         createClubService.createClub(request);
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
     public List<ClubListResponse> queryAllClub() {
         return queryAllClubService.queryAllClub();
     }
 
+    @GetMapping("/{clubName}")
+    @ResponseStatus(HttpStatus.OK)
+    public ClubResponse queryClubInfo(@PathVariable String clubName) {
+        return queryClubInfoService.queryClubInfo(clubName);
+    }
+
     @PatchMapping("/{clubName}")
     @ResponseStatus(HttpStatus.OK)
     public void udpateClub(@PathVariable String clubName, @RequestBody UpdateClubRequest request) {
-        updateClubService.updateClub(clubName, request);
+        updateClubInfoService.updateClub(clubName, request);
     }
 
     @DeleteMapping("/{clubName}")
