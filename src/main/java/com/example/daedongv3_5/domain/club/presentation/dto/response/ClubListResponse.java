@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 public class ClubListResponse {
+    private Long clubId;
     private String clubName;
     private String introduction;
     private String clubMember;

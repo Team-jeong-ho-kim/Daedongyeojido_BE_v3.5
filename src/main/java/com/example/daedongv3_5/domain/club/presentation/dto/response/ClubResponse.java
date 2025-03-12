@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class ClubResponse {
+    private Long clubId;
     private String clubName;
     private String introduction;
     private String clubMember;
