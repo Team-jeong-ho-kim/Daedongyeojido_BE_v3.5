@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class UpdateClubService {
+public class UpdateClubInfoService {
     private final ClubRepository clubRepository;
     private final ClubFacade clubFacade;
 
