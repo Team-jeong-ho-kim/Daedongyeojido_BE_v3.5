@@ -15,20 +15,20 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
 
     private final QClub qClub = QClub.club;
 
-    @Override
-    public List<ClubListResponse> findAllClub() {
-        return jpaQueryFactory.select(Projections.constructor(ClubListResponse.class, qClub.id, qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major, qClub.createdAt))
-                .from(qClub)
-                .orderBy(qClub.createdAt.desc())
-                .fetch();
-    }
+//    @Override
+//    public List<ClubListResponse> findAllClub() {
+//        return jpaQueryFactory.select(Projections.constructor(ClubListResponse.class, qClub.id.as("clubId"), qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major, qClub.createdAt))
+//                .from(qClub)
+//                .orderBy(qClub.createdAt.desc())
+//                .fetch();
+//    }
 
-    @Override
-    public ClubResponse findClubInfoByClubId(Long clubId) {
-        return jpaQueryFactory.select(Projections.constructor(ClubResponse.class, qClub.id, qClub.clubName, qClub.introduction, qClub.clubMember, qClub.major))
-                .from(qClub)
-                .where(qClub.id.eq(clubId))
-                .fetchOne();
-    }
+//    @Override
+//    public ClubResponse findClubInfoByClubId(Long clubId) {
+//        return jpaQueryFactory.select(Projections.constructor(ClubResponse.class, qClub.id.as("clubId"), qClub.clubName, qClub.introduction, qClub.clubMember))
+//                .from(qClub)
+//                .where(qClub.id.eq(clubId))
+//                .fetchOne();
+//    }
 
 }

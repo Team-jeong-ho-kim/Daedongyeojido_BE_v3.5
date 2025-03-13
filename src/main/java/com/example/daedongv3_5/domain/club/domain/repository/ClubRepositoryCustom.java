@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ClubRepositoryCustom {
 
-    List<ClubListResponse> findAllClub();
+//    List<ClubListResponse> findAllClub();
 
-    ClubResponse findClubInfoByClubId(Long clubId);
+//    ClubResponse findClubInfoByClubId(Long clubId);
 }
