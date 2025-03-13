@@ -36,6 +36,8 @@ public class QClub extends EntityPathBase<Club> {
 
     public final ListPath<Major, QMajor> majors = this.<Major, QMajor>createList("majors", Major.class, QMajor.class, PathInits.DIRECT2);
 
+    public final StringPath oneLiner = createString("oneLiner");
+
     public QClub(String variable) {
         super(Club.class, forVariable(variable));
     }
