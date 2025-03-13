@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 public class ClubFacade {
     private final ClubRepository clubRepository;
 
-    public Club clubFacade(Long clubId) {
-        return clubRepository.findById(clubId)
+    public Club clubFacade(Long id) {
+        return clubRepository.findById(id)
                 .orElseThrow(() -> ClubNotFoundException.EXCEPTION);
     }
 }
