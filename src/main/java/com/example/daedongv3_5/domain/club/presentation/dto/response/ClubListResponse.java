@@ -15,6 +15,7 @@ public class ClubListResponse {
     private Long id;
     private String clubName;
     private String introduction;
+    private String oneLiner;
     private String clubMember;
     private List<Major> majors;
     private LocalDateTime createAt;
@@ -23,6 +24,7 @@ public class ClubListResponse {
         this.id = club.getId();
         this.clubName = club.getClubName();
         this.introduction = club.getIntroduction();
+        this.oneLiner = club.getOneLiner();
         this.clubMember = club.getClubMember();
         this.majors = club.getMajors();
         this.createAt = club.getCreatedAt();

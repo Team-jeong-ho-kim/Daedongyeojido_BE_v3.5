@@ -14,6 +14,7 @@ public class ClubResponse {
     private Long id;
     private String clubName;
     private String introduction;
+    private String oneLiner;
     private String clubMember;
     private List<Major> majors;
 
@@ -21,6 +22,7 @@ public class ClubResponse {
         this.id = club.getId();
         this.clubName = club.getClubName();
         this.introduction = club.getIntroduction();
+        this.oneLiner = club.getOneLiner();
         this.clubMember = club.getClubMember();
         this.majors = club.getMajors();
     }
