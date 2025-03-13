@@ -24,6 +24,7 @@ public class Club extends BaseIdEntity {
     @Column(nullable = false, length = 300)
     private String introduction;
 
+    @Column(nullable = false, length = 20)
     private String oneLiner;  //한 줄 소개라는 뜻
 
     private String clubMember;
