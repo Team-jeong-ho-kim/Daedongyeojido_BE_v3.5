@@ -14,8 +14,9 @@ public class DeleteClubService {
     private final ClubFacade clubFacade;
 
     @Transactional
-    public void deleteClub(Long clubId) {
-        Club club = clubFacade.clubFacade(clubId);
-        clubRepository.deleteById(clubId);
+    public void deleteClub(Long id) {
+        Club club = clubFacade.clubFacade(id);
+
+        clubRepository.deleteById(id);
     }
 }
