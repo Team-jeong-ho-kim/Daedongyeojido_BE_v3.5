@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface ClubRepository extends JpaRepository<Club, Long>, ClubRepositoryCustom{
 
+    @EntityGraph(attributePaths = {"majors"})
     Optional<Club> findClubById(Long id);
 
     void deleteById(Long id);
