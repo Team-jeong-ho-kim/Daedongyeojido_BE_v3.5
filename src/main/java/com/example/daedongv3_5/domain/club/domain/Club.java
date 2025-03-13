@@ -24,6 +24,8 @@ public class Club extends BaseIdEntity {
     @Column(nullable = false, length = 300)
     private String introduction;
 
+    private String oneLiner;  //한 줄 소개라는 뜻
+
     private String clubMember;
 
     @JsonIgnore
@@ -31,9 +33,10 @@ public class Club extends BaseIdEntity {
     private List<Major> majors = new ArrayList<>();
 
 
-    public void update(String clubName, String introduction, String clubMember, List<Major> majors) {
+    public void update(String clubName, String introduction, String oneLiner, String clubMember, List<Major> majors) {
         this.clubName = clubName;
         this.introduction = introduction;
+        this.oneLiner = oneLiner;
         this.clubMember = clubMember;
         this.majors = majors;
     }
