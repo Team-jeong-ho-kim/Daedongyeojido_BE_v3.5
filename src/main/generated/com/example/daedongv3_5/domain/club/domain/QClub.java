@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -33,7 +34,7 @@ public class QClub extends EntityPathBase<Club> {
 
     public final StringPath introduction = createString("introduction");
 
-    public final EnumPath<com.example.daedongv3_5.domain.club.domain.enums.Major> major = createEnum("major", com.example.daedongv3_5.domain.club.domain.enums.Major.class);
+    public final ListPath<Major, QMajor> majors = this.<Major, QMajor>createList("majors", Major.class, QMajor.class, PathInits.DIRECT2);
 
     public QClub(String variable) {
         super(Club.class, forVariable(variable));
