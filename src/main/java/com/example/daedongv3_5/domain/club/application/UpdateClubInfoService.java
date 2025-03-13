@@ -24,6 +24,7 @@ public class UpdateClubInfoService {
         club.update(
                 request.getClubName(),
                 request.getIntroduction(),
+                request.getOneLiner(),
                 request.getClubMember(),
                 request.getMajors().stream().map(majorType -> new Major(majorType)).collect(Collectors.toList())
         );

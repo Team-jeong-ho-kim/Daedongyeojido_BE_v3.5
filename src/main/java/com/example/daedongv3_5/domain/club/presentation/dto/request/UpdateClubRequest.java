@@ -14,6 +14,8 @@ public class UpdateClubRequest {
 
     private String introduction;
 
+    private String oneLiner;
+
     private String clubMember;
 
     private List<MajorType> majors;
