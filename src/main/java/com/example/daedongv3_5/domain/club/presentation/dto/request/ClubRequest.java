@@ -1,12 +1,16 @@
 package com.example.daedongv3_5.domain.club.presentation.dto.request;
 
-import com.example.daedongv3_5.domain.club.domain.enums.Major;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import com.example.daedongv3_5.domain.club.domain.enums.MajorType;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
+@AllArgsConstructor
 public class ClubRequest {
 
     @NotNull
@@ -16,7 +20,6 @@ public class ClubRequest {
 
     private String clubMember;
 
-    @Enumerated(EnumType.STRING)
-    private Major major;
+    private List<MajorType> majors;
 
 }
