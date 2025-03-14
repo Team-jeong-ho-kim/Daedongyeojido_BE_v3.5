@@ -30,20 +30,10 @@ public enum ErrorCode {
     // key
     INVALID_KEY(401, "잘못된 key입니다."),
 
-    //comment
-    COMMENT_NOT_FOUND(404, "Cannot Found Comment."),
-    CANNOT_DELETE_COMMENT(403, "Cannot Delete Comment."),
-    CANNOT_MODIFY_COMMENT(403, "Cannot Modify Comment."),
-
-    //feed
-    FEED_NOT_FOUND(404, "Feed Not Found."),
-    CANNOT_DELETE_FEED(403, "Cannot Delete Feed."),
-    CANNOT_MODIFY_FEED(403, "Cannot Modify Feed."),
-    CANNOT_CREATE_FEED(403, "Cannot Create Feed"),
-
-    //like
-    LIKE_EXIST(409, "Like Exist."),
-    CANNOT_DELETE_LIKE(409, "Cannot Delete Like."),
+    // image
+    DELETE_IMAGE_FAILED(500, "Delete Image Failed"),
+    IMAGE_NOT_FOUND(404, "Image Not Found."),
+    INVALID_IMAGE(400, "Invalid Image.");
 
     //feign
     FEIGN_BAD_REQUEST(401, "Feign Bad Reqeust"),
