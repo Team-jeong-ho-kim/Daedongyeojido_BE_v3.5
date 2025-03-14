@@ -29,7 +29,7 @@ public class ClubController {
         createClubService.createClub(request);
     }
 
-    @GetMapping("")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ClubListResponse> queryAllClub() {
         return queryAllClubService.queryAllClub();
