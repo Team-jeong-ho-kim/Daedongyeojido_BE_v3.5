@@ -20,6 +20,9 @@ public enum ErrorCode {
     INVALID_USER(401, "유효하지 않는 사용자입니다."),
     USER_ALREADY_TAKEN(401, "이미 유저가 있습니다"),
 
+    //club
+    CLUB_NOT_FOUND(404, "존재하지 않는 동아리 입니다."),
+
     // general
     BAD_REQUEST(400, "프론트 탓이 확실하다.."),
     INTERNAL_SERVER_ERROR(500, "서버 탓일 수도 있고.."),
@@ -47,6 +50,9 @@ public enum ErrorCode {
 
     // teacher
     TEACHER_NOT_FOUND(404, "일치하는 선생님을 찾을 수 없습니다."),
+
+    //image
+    FAIL_FILE(500, "파일 업로드 실패");
 
     private final int statusCode;
     private final String message;
