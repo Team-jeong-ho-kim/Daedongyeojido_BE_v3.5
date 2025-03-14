@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ClubRequest {
 
+    @Size(max = 15)
     @NotNull(message = "동아리 이름이 비어있습니다.")
     private String clubName;
 

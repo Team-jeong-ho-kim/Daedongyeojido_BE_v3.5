@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Club extends BaseTimeEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 15)
     private String clubName;
 
     @Column(nullable = false, length = 300)
