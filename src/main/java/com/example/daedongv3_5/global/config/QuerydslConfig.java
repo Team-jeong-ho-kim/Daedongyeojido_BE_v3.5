@@ -1,3 +1,4 @@
+
 package com.example.daedongv3_5.global.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -15,4 +16,4 @@ public class QuerydslConfig {
     public JPAQueryFactory jpaQueryFactory() {
         return new JPAQueryFactory(em);
     }
-}
+
