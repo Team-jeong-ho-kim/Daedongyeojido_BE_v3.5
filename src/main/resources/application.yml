@@ -4,6 +4,8 @@ jwt:
   accessExpiration: 3600
   refreshExpiration: 604800
   secretKey: ${JWT_SECRET_KEY}
+  teacherSecret: ccc
+  studentSecret: ddd
 
 spring:
   main:
@@ -43,3 +45,6 @@ cloud:
     credentials:
       access-key: ${AWS_ACCESS_KEY_ID}
       secret-key: ${AWS_SECRET_ACCESS_KEY}
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
