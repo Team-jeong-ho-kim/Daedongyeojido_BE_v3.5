@@ -1,6 +1,7 @@
 package com.example.daedongv3_5.domain.club.domain;
 
 import com.example.daedongv3_5.global.entity.BaseIdEntity;
+import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Club extends BaseIdEntity {
+public class Club extends BaseTimeEntity {
 
     @Column(nullable = false)
     private String clubName;

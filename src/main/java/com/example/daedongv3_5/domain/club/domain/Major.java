@@ -1,19 +1,17 @@
 package com.example.daedongv3_5.domain.club.domain;
 
 import com.example.daedongv3_5.domain.club.domain.enums.MajorType;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import com.example.daedongv3_5.global.entity.BaseIdEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Major {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Major extends BaseIdEntity {
 
     @Enumerated(EnumType.STRING)
     private MajorType majorType;
