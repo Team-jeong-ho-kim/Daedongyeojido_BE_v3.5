@@ -35,11 +35,10 @@ public class Club extends BaseTimeEntity {
     private List<Major> majors = new ArrayList<>();
 
 
-    public void update(String clubName, String introduction, String oneLiner, String clubMember, List<Major> majors) {
+    public void update(String clubName, String introduction, String oneLiner, List<Major> majors) {
         this.clubName = clubName;
         this.introduction = introduction;
         this.oneLiner = oneLiner;
-        this.clubMember = clubMember;
         this.majors = majors;
     }
 }
