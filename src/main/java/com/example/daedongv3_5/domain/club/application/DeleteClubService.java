@@ -17,6 +17,6 @@ public class DeleteClubService {
     public void deleteClub(Long id) {
         Club club = clubFacade.clubFacade(id);
 
-        clubRepository.deleteById(id);
+        clubRepository.delete(club);
     }
 }

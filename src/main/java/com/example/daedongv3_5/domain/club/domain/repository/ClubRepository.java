@@ -12,8 +12,6 @@ public interface ClubRepository extends JpaRepository<Club, Long> {
     @EntityGraph(attributePaths = {"majors"})
     Optional<Club> findClubById(Long id);
 
-    void deleteById(Long id);
-
     @EntityGraph(attributePaths = {"majors"}) // majors 필드를 즉시 로딩
     List<Club> findAll();
 }
