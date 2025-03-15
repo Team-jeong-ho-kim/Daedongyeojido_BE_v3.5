@@ -27,7 +27,6 @@ jwt:
   studentSecret: ddd
 
 
-
 redis:
   host: localhost
   port: 6379
