@@ -1,6 +1,5 @@
 package com.example.daedongv3_5.domain.club.domain;
 
-import com.example.daedongv3_5.global.entity.BaseIdEntity;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -33,7 +32,6 @@ public class Club extends BaseTimeEntity {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Major> majors = new ArrayList<>();
-
 
     public void update(String clubName, String introduction, String oneLiner, List<Major> majors) {
         this.clubName = clubName;
