@@ -1,6 +1,7 @@
 package com.example.daedongv3_5.domain.recruitment.presentation;
 
 import com.example.daedongv3_5.domain.recruitment.application.CreateRecruitmentService;
+import com.example.daedongv3_5.domain.recruitment.application.DeleteRecruitmentService;
 import com.example.daedongv3_5.domain.recruitment.application.UpdateRecruitmentService;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import jakarta.validation.Valid;
@@ -15,6 +16,7 @@ public class RecruitmentController {
 
     private final CreateRecruitmentService createRecruitmentService;
     private final UpdateRecruitmentService updateRecruitmentService;
+    private final DeleteRecruitmentService deleteRecruitmentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -26,6 +28,12 @@ public class RecruitmentController {
     @ResponseStatus(HttpStatus.OK)
     public void updateRecruitment(@PathVariable Long id, @RequestBody @Valid RecruitmentRequest request) {
         updateRecruitmentService.updateRecruitment(id, request);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteRecruitment(@PathVariable Long id) {
+        deleteRecruitmentService.deleteRecruitment(id);
     }
 
 }
