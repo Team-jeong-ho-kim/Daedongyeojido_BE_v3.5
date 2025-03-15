@@ -33,7 +33,7 @@ public enum ErrorCode {
     // image
     DELETE_IMAGE_FAILED(500, "Delete Image Failed"),
     IMAGE_NOT_FOUND(404, "Image Not Found."),
-    INVALID_IMAGE(400, "Invalid Image.");
+    INVALID_IMAGE(400, "Invalid Image."),
 
     //feign
     FEIGN_BAD_REQUEST(401, "Feign Bad Reqeust"),
