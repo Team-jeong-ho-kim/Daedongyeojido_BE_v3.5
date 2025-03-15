@@ -31,9 +31,9 @@ public enum ErrorCode {
     INVALID_KEY(401, "잘못된 key입니다."),
 
     // image
-    DELETE_IMAGE_FAILED(500, "Delete Image Failed"),
-    IMAGE_NOT_FOUND(404, "Image Not Found."),
-    INVALID_IMAGE(400, "Invalid Image.");
+    DELETE_IMAGE_FAILED(500, "이미지 삭제에 실패했습니다."),
+    IMAGE_NOT_FOUND(404, "이미지를 찾을 수 없습니다."),
+    INVALID_IMAGE(400, "유효하지 않은 이미지 입니다."),
 
     //feign
     FEIGN_BAD_REQUEST(401, "Feign Bad Reqeust"),
@@ -51,8 +51,10 @@ public enum ErrorCode {
     // teacher
     TEACHER_NOT_FOUND(404, "일치하는 선생님을 찾을 수 없습니다."),
 
-    //image
-    FAIL_FILE(500, "파일 업로드 실패");
+    // recruitment
+    RECRUITMENT_NOT_FOUND(404, "해당하는 지원서를 찾을 수 없습니다."),
+    CANNOT_UPDATE_RECRUITMENT(403, "지원서를 수정할 수 없습니다."),
+    CANNOT_DELETE_RECRUITMENT(403, "지원서를 삭제할 수 없습니다.");
 
     private final int statusCode;
     private final String message;
