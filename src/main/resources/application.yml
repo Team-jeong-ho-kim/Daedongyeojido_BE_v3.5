@@ -1,13 +1,6 @@
-jwt:
-  header: Authorization
-  prefix: Bearer
-  accessExpiration: 3600
-  refreshExpiration: 604800
-  secretKey: ${JWT_SECRET_KEY}
-  teacherSecret: ccc
-  studentSecret: ddd
-
 spring:
+  jackson:
+    time-zone: Asia/Seoul
   main:
     allow-bean-definition-overriding: true
 
@@ -27,8 +20,10 @@ spring:
     open-in-view: false
     show-sql: true
     hibernate:
+      jdbc:
+        time_zone: Asia/Seoul
       ddl-auto: update
-
+      
   jackson:
     property-naming-strategy: SNAKE_CASE
 
@@ -53,3 +48,11 @@ cloud:
       profile-images: ${PROFILE_IMAGES_FOLDER}
       club-images: ${CLUB_IMAGES_FOLDER}
 
+jwt:
+  header: Authorization
+  prefix: Bearer
+  accessExpiration: 3600
+  refreshExpiration: 604800
+  secretKey: ${JWT_SECRET_KEY}
+  teacherSecret: ${TEACHER_SECERT}
+  studentSecret: ${STUDENT_SECRET}
