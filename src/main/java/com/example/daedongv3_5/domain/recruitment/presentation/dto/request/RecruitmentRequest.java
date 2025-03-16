@@ -23,7 +23,7 @@ public class RecruitmentRequest {
 
     private String taskLink;
 
-    @NotNull
+    @NotNull(message = "1개 이상의 전공을 선택해주세요.")
     private List<Major> majors;
 
 }
