@@ -3,9 +3,9 @@ spring:
     time-zone: Asia/Seoul
   main:
     allow-bean-definition-overriding: true
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-
     url: ${DB_URL}
     username: ${DB_NAME}
     password: ${DB_PASSWORD}
@@ -14,6 +14,7 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
@@ -22,13 +23,12 @@ spring:
       jdbc:
         time_zone: Asia/Seoul
       ddl-auto: update
+      
+  jackson:
+    property-naming-strategy: SNAKE_CASE
 
-  jwt:
-    header: Authorization
-    prefix: Bearer
-    accessExpiration: 3600
-    refreshExpiration: 604800
-    secretKey: ${JWT_SECRET_KEY}
+key:
+  login-api-url: ${XQUARE_URL}
 
 redis:
   host: localhost
@@ -36,10 +36,6 @@ redis:
 
 cloud:
   aws:
-    s3:
-      bucket: ${BUCKET_NAME}
-      profile-images: ${PROFILE_IMAGES_FOLDER}
-      club-images: ${CLUB_IMAGES_FOLDER}
     region:
       static: ${AWS_REGION}
     stack:
@@ -47,3 +43,16 @@ cloud:
     credentials:
       access-key: ${AWS_ACCESS_KEY_ID}
       secret-key: ${AWS_SECRET_ACCESS_KEY}
+    s3:
+      bucket: ${BUCKET_NAME}
+      profile-images: ${PROFILE_IMAGES_FOLDER}
+      club-images: ${CLUB_IMAGES_FOLDER}
+
+jwt:
+  header: Authorization
+  prefix: Bearer
+  accessExpiration: 3600
+  refreshExpiration: 604800
+  secretKey: ${JWT_SECRET_KEY}
+  teacherSecret: ${TEACHER_SECERT}
+  studentSecret: ${STUDENT_SECRET}

@@ -1,9 +1,13 @@
-package com.example.daedongv3_5.global.config;
+package com.example.daedongv3_5.global.security;
 
+import com.example.daedongv3_5.global.security.SecurityFilterConfig;
+import com.example.daedongv3_5.global.security.jwt.JwtTokenProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -23,11 +27,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final ObjectMapper objectMapper;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
@@ -39,6 +45,8 @@ public class SecurityConfig {
                         .configurationSource(corsConfigurationSource())
                 )
 
+
+
                 .headers(headers -> {
                             headers
                                     .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin
@@ -46,15 +54,31 @@ public class SecurityConfig {
                         }
                 )
 
+
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint((request, response, authException) -> response
+                                .sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized"))
+                        .accessDeniedHandler((request, response, accessDeniedException) -> response
+                                .sendError(HttpServletResponse.SC_FORBIDDEN, "Access Denied"))
+                )
+
+
+
+
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
                 .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers( "/club/**")
-                        .permitAll()
-                );
+                        .requestMatchers( "/club/**","/auth/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+
+                .with(new SecurityFilterConfig(jwtTokenProvider, objectMapper), Customizer.withDefaults());
+
+
+
 
         return httpSecurity.build();
 
