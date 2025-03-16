@@ -6,6 +6,7 @@ import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,7 @@ public class Recruitment extends BaseTimeEntity {
     private RecruitmentStatus status;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Major> majors;
+    private List<Major> majors = new ArrayList<>();
 
     public void update(RecruitmentRequest request) {
         this.introduction = request.getIntroduction();
