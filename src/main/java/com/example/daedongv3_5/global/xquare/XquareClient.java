@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "xquare-client", url = "https://prod-server.xquare.app/dsm-login", configuration = XquareRetryConfiguartion.class)
+@FeignClient(name = "xquare-client", url = "${key.login-api-url}", configuration = XquareRetryConfiguartion.class)
 public interface XquareClient {
     @PostMapping("/user-data")
     XquareUserResponse xquareUser(@RequestBody LoginRequest request);

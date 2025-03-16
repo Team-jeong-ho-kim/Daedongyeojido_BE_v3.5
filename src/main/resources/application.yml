@@ -32,6 +32,9 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
 
+key:
+  login-api-url: ${XQUARE_URL}
+
 redis:
   host: localhost
   port: 6379
