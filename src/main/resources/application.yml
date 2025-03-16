@@ -23,6 +23,9 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
 
+key:
+  login-api-url: ${XQUARE_URL}
+
 redis:
   host: localhost
   port: 6379
@@ -49,5 +52,5 @@ jwt:
   accessExpiration: 3600
   refreshExpiration: 604800
   secretKey: ${JWT_SECRET_KEY}
-  teacherSecret: ccc
-  studentSecret: ddd
+  teacherSecret: ${TEACHER_SECERT}
+  studentSecret: ${STUDENT_SECRET}
