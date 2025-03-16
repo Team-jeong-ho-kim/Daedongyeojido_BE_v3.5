@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 jwt:
   header: Authorization
   prefix: Bearer
@@ -9,7 +7,6 @@ jwt:
   teacherSecret: ccc
   studentSecret: ddd
 
->>>>>>> Stashed changes
 spring:
   main:
     allow-bean-definition-overriding: true
@@ -53,13 +50,3 @@ cloud:
       profile-images: ${PROFILE_IMAGES_FOLDER}
       club-images: ${CLUB_IMAGES_FOLDER}
 
-
-
-jwt:
-  header: Authorization
-  prefix: Bearer
-  accessExpiration: 3600
-  refreshExpiration: 604800
-  secretKey: ${JWT_SECRET_KEY}
-  teacherSecret: ccc
-  studentSecret: ddd
