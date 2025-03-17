@@ -30,7 +30,7 @@ public class StudentLoginService {
 
     @Transactional
     public TokenResponse studentLogin(LoginRequest request) {
-        return studentRepository.existsByAccountId(request.accountId().trim())
+        return studentRepository.existsByAccountId(request.accountId())
                 ? loginExistingStudent(request)
                 : registerAndLoginNewStudent(request);
     }
@@ -48,18 +48,20 @@ public class StudentLoginService {
 
     private TokenResponse registerAndLoginNewStudent(LoginRequest request) {
         XquareUserResponse xquareUserResponse;
+        xquareUserResponse = xquareClient.xquareUser(request);
+        System.out.println(request.accountId());
 
-        try {
-            xquareUserResponse = xquareClient.xquareUser(request);
-        } catch (FeignException e) {
-            final var status = e.status();
-            if (status == 401) {
-                throw new ExternalException(ErrorCode.LOGIN_FAILED);
-            }
-            else {
-                throw new ExternalException(ErrorCode.XQUARE);
-            }
-        }
+//        try {
+//            xquareUserResponse = xquareClient.xquareUser(request);
+//        } catch (FeignException e) {
+//            final var status = e.status();
+//            if (status == 401) {
+//                throw new ExternalException(ErrorCode.LOGIN_FAILED);
+//            }
+//            else {
+//                throw new ExternalException(ErrorCode.XQUARE);
+//            }
+//        }
 
         if(!xquareUserResponse.getUserRole().equals("STU")) throw InvalidUserException.EXCEPTION;
         final var newStudent = createAndSaveNewStudent(xquareUserResponse);
