@@ -8,9 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 @RequiredArgsConstructor
 public class QueryClubInfoService {
@@ -18,12 +15,15 @@ public class QueryClubInfoService {
     private final ClubFacade clubFacade;
 
     @Transactional(readOnly = true)
-    public List<ClubResponse> queryClubInfo(Long id) {
+    public ClubResponse queryClubInfo(Long id) {
         Club club = clubFacade.clubFacade(id);
 
-        return clubRepository.findClubById(id)
-                .stream()
-                .map(club1 -> new ClubResponse(club))
-                .collect(Collectors.toList());
+        return ClubResponse.builder()
+                .id(club.getId())
+                .clubName(club.getClubName())
+                .introduction(club.getIntroduction())
+                .oneLiner(club.getOneLiner())
+                .majors(club.getMajors())
+                .build();
     }
 }
