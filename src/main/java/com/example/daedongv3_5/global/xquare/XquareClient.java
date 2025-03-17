@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "xquare-client", url = "${key.login-api-url}", configuration = XquareRetryConfiguartion.class)
 public interface XquareClient {
-    @PostMapping("/user-data")
+    @GetMapping("/user-data")
     XquareUserResponse xquareUser(@RequestBody LoginRequest request);
 
     @PatchMapping("/modify-profile")

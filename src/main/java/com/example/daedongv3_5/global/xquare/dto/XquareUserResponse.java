@@ -10,7 +10,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class XquareUserResponse {
     private UUID id;
-    private String account_id;
+    private String accountId;
     private String password;
     private String name;
     private Integer grade;
