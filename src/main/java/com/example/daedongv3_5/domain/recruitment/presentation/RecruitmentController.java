@@ -27,10 +27,10 @@ public class RecruitmentController {
         createRecruitmentService.createRecruitment(request);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping
     @ResponseStatus(HttpStatus.OK)
-    public void updateRecruitment(@PathVariable Long id, @RequestBody @Valid RecruitmentRequest request) {
-        updateRecruitmentService.updateRecruitment(id, request);
+    public void updateRecruitment(@RequestBody @Valid RecruitmentRequest request) {
+        updateRecruitmentService.updateRecruitment(request);
     }
 
     @DeleteMapping("/{id}")

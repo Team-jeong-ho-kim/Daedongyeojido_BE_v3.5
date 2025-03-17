@@ -1,6 +1,5 @@
 package com.example.daedongv3_5.domain.club.application;
 
-import com.example.daedongv3_5.domain.club.application.facade.ClubFacade;
 import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.repository.ClubRepository;
 import com.example.daedongv3_5.domain.club.exception.ClubNotFoundException;

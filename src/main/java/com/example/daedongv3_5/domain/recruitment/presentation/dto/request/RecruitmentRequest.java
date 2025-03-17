@@ -13,6 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class RecruitmentRequest {
 
+    @NotNull
+    private Long id;
+
     @NotBlank
     @Size(max = 300)
     private String introduction;

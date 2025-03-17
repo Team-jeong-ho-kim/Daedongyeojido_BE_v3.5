@@ -1,7 +1,8 @@
 package com.example.daedongv3_5.domain.recruitment.application;
 
-import com.example.daedongv3_5.domain.recruitment.application.facade.RecruitmentFacade;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
+import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
+import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundException;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,11 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UpdateRecruitmentService {
 
-    private final RecruitmentFacade recruitmentFacade;
+    private final RecruitmentRepository recruitmentRepository;
 
     @Transactional
-    public void updateRecruitment(Long recruitmentId, RecruitmentRequest request) {
-        Recruitment recruitment = recruitmentFacade.getRecruitment(recruitmentId);
+    public void updateRecruitment(RecruitmentRequest request) {
+        Recruitment recruitment = recruitmentRepository.findById(request.getId())
+                        .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
 
         recruitment.update(request);
     }
