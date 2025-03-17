@@ -36,7 +36,7 @@ public class ClubController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<ClubResponse> queryClubInfo(@PathVariable Long id) {
+    public ClubResponse queryClubInfo(@PathVariable Long id) {
         return queryClubInfoService.queryClubInfo(id);
     }
 

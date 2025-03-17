@@ -1,6 +1,6 @@
 package com.example.daedongv3_5.domain.recruitment.domain;
 
-import com.example.daedongv3_5.domain.club.domain.Major;
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
@@ -28,7 +28,8 @@ public class Recruitment extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private RecruitmentStatus status;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Enumerated(EnumType.STRING)
     private List<Major> majors = new ArrayList<>();
 
     public void update(RecruitmentRequest request) {

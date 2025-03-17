@@ -1,8 +1,7 @@
 package com.example.daedongv3_5.domain.club.presentation.dto.response;
 
 import com.example.daedongv3_5.domain.club.domain.Club;
-import com.example.daedongv3_5.domain.club.domain.Major;
-import com.example.daedongv3_5.domain.club.domain.enums.MajorType;
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

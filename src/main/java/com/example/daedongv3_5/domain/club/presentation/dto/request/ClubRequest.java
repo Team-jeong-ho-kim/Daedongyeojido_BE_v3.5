@@ -1,15 +1,13 @@
 package com.example.daedongv3_5.domain.club.presentation.dto.request;
 
-import com.example.daedongv3_5.domain.club.domain.enums.MajorType;
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -28,6 +26,6 @@ public class ClubRequest {
     private String clubMember;
 
     @NotEmpty(message = "한 가지 이상의 전공을 선택해야 합니다.")
-    private List<MajorType> majors;
+    private List<Major> majors;
 
 }

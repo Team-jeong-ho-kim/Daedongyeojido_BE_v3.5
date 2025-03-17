@@ -18,6 +18,7 @@ public class QueryAllClubService {
     public List<ClubListResponse> queryAllClub() {
         return clubRepository.findAll()
                 .stream()
+                .peek(club -> club.getMajors().size()) //major 강제 로딩
                 .map(club -> new ClubListResponse(club))
                 .collect(Collectors.toList());
     }
