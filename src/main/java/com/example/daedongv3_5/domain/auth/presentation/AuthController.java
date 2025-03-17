@@ -6,11 +6,13 @@ import com.example.daedongv3_5.domain.auth.service.ReissueTokenService;
 import com.example.daedongv3_5.domain.auth.service.StudentLoginService;
 import com.example.daedongv3_5.domain.auth.service.TeacherLoginService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,16 +25,19 @@ public class AuthController {
     private final TeacherLoginService teacherLoginService;
 
     @PostMapping("/student")
+    @ResponseStatus(HttpStatus.OK)
     TokenResponse studentLogin(@RequestBody LoginRequest request) {
         return studentLoginService.studentLogin(request);
     }
 
     @PostMapping("/teacher")
+    @ResponseStatus(HttpStatus.OK)
     TokenResponse teacherLogin(@RequestBody LoginRequest request) {
         return teacherLoginService.teacherLogin(request);
     }
 
     @PutMapping("/token")
+    @ResponseStatus(HttpStatus.OK)
     TokenResponse reissueToken(@RequestHeader(name = "x-refresh-token") String token) {
         return reissueTokenService.reissueToken(token);
     }
