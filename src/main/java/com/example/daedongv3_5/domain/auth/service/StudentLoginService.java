@@ -77,7 +77,7 @@ public class StudentLoginService {
 
         return studentRepository.save(
                 new StudentEntity(
-                        xquareUserResponse.getAccountId(),
+                        xquareUserResponse.getAccount_id(),
                         xquareUserResponse.getPassword(),
                         xquareUserResponse.getName(),
                         xquareUserResponse.getGrade(),

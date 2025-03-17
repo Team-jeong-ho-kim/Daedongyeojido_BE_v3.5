@@ -25,7 +25,7 @@ public class TeacherEntity {
 
     // XquareUserResponse를 매개변수로 받는 생성자 추가
     public TeacherEntity(XquareUserResponse xquareResponse) {
-        this.accountId = xquareResponse.getAccountId();
+        this.accountId = xquareResponse.getAccount_id();
         this.password = xquareResponse.getPassword();
         this.name = xquareResponse.getName();
         // 필요한 경우 다른 필드도 초기화
