@@ -1,6 +1,6 @@
 package com.example.daedongv3_5.domain.club.presentation.dto.request;
 
-import com.example.daedongv3_5.domain.club.domain.enums.MajorType;
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
@@ -16,5 +16,5 @@ public class UpdateClubRequest {
 
     private String oneLiner;
 
-    private List<MajorType> majors;
+    private List<Major> majors;
 }
