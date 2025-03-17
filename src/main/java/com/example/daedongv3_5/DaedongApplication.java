@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 @SpringBootApplication
 @EnableFeignClients
 @ConfigurationPropertiesScan
+@EnableJpaAuditing
 @ImportAutoConfiguration({FeignAutoConfiguration.class})
 public class DaedongApplication {
 
