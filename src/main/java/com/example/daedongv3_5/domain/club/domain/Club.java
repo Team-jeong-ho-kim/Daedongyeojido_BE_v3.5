@@ -1,7 +1,8 @@
 package com.example.daedongv3_5.domain.club.domain;
 
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
+import com.example.daedongv3_5.domain.club.presentation.dto.request.UpdateClubRequest;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,14 +30,14 @@ public class Club extends BaseTimeEntity {
 
     private String clubMember;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Enumerated(EnumType.STRING)
     private List<Major> majors = new ArrayList<>();
 
-    public void update(String clubName, String introduction, String oneLiner, List<Major> majors) {
-        this.clubName = clubName;
-        this.introduction = introduction;
-        this.oneLiner = oneLiner;
-        this.majors = majors;
+    public void update(UpdateClubRequest request) {
+        this.clubName = request.getClubName();
+        this.introduction = request.getIntroduction();
+        this.oneLiner = request.getOneLiner();
+        this.majors = request.getMajors();
     }
 }
