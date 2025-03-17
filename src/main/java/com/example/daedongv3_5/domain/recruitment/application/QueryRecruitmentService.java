@@ -1,5 +1,6 @@
 package com.example.daedongv3_5.domain.recruitment.application;
 
+import com.example.daedongv3_5.domain.recruitment.application.facade.RecruitmentFacade;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
 import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.response.RecruitmentResponse;
@@ -12,10 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class QueryRecruitmentService {
 
     private final RecruitmentRepository recruitmentRepository;
+    private final RecruitmentFacade recruitmentFacade;
 
     @Transactional(readOnly = true)
     public RecruitmentResponse getRecruitmentById(Long id) {
-        Recruitment recruitment = recruitmentRepository.findByRecruitmentId(id);
+        Recruitment recruitment = recruitmentFacade.getRecruitment(id);
 
         return RecruitmentResponse.builder()
             .id(recruitment.getId())
