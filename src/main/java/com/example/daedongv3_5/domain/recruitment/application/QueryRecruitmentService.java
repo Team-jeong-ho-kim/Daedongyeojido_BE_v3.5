@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 @Service
 @RequiredArgsConstructor
 public class QueryRecruitmentService {
@@ -23,7 +25,7 @@ public class QueryRecruitmentService {
             .id(recruitment.getId())
             .introduction(recruitment.getIntroduction())
             .phoneNumber(recruitment.getPhoneNumber())
-            .majors(recruitment.getMajors())
+            .majors(new ArrayList<>(recruitment.getMajors()))
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
             .build();
