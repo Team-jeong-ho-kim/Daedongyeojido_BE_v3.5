@@ -40,10 +40,10 @@ public class ClubController {
         return queryClubInfoService.queryClubInfo(id);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping
     @ResponseStatus(HttpStatus.OK)
-    public void updateClubInfo(@PathVariable Long id, @RequestBody @Valid UpdateClubRequest request) {
-        updateClubInfoService.updateClub(id, request);
+    public void updateClubInfo(@RequestBody @Valid UpdateClubRequest request) {
+        updateClubInfoService.updateClub(request);
     }
 
     @DeleteMapping("/{id}")

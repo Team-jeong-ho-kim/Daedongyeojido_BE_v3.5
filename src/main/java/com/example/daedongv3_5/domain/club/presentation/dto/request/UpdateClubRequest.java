@@ -10,6 +10,9 @@ import java.util.List;
 public class UpdateClubRequest {
 
     @NotNull
+    private Long id;
+
+    @NotNull
     private String clubName;
 
     private String introduction;
