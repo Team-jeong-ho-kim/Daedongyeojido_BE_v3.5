@@ -1,6 +1,6 @@
 package com.example.daedongv3_5.domain.recruitment.presentation.dto.request;
 
-import com.example.daedongv3_5.domain.club.domain.Major;
+import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
