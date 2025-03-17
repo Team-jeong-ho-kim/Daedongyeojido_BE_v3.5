@@ -1,8 +1,8 @@
 package com.example.daedongv3_5.domain.recruitment.application;
 
-import com.example.daedongv3_5.domain.recruitment.application.facade.RecruitmentFacade;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
 import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
+import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,11 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class DeleteRecruitmentService {
 
     private final RecruitmentRepository recruitmentRepository;
-    private final RecruitmentFacade recruitmentFacade;
 
     @Transactional
     public void deleteRecruitment(Long recruitmentId) {
-        Recruitment recruitment = recruitmentFacade.getRecruitment(recruitmentId);
+        Recruitment recruitment = recruitmentRepository.findById(recruitmentId)
+                .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
 
         recruitmentRepository.delete(recruitment);
     }
