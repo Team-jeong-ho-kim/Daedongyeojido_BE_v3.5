@@ -46,6 +46,7 @@ cloud:
       bucket: ${BUCKET_NAME}
       profile-images: ${PROFILE_IMAGES_FOLDER}
       club-images: ${CLUB_IMAGES_FOLDER}
+      club-logo-images: ${CLUB_LOGO_IMAGES_FOLDER}
 
 jwt:
   header: Authorization

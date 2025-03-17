@@ -64,6 +64,7 @@ public class S3Service {
         switch (folderType) {
             case PROFILE_IMAGES -> path = s3Properties.profileImages();
             case CLUB_IMAGES -> path = s3Properties.clubImages();
+            case CLUB_LOGO_IMAGES -> path = s3Properties.clubLogoImages();
             default -> throw InvalidImageException.EXCEPTION;
         }
 
