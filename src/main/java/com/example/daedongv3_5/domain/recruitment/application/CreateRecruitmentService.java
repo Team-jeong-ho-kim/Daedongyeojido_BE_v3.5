@@ -22,6 +22,7 @@ public class CreateRecruitmentService {
                 .majors(request.getMajors())
                 .taskLink(request.getTaskLink())
                 .status(RecruitmentStatus.SUBMITTED)
+                .club(request.getClubName())
             .build());
     }
 

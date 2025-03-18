@@ -1,5 +1,6 @@
 package com.example.daedongv3_5.domain.recruitment.presentation.dto.request;
 
+import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -15,6 +16,9 @@ public class RecruitmentRequest {
 
     @NotNull
     private Long id;
+
+    @NotNull
+    private Club clubName;
 
     @NotBlank
     @Size(max = 300)
