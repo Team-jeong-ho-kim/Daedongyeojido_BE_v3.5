@@ -7,7 +7,7 @@ public class CannotDeleteRecruitmentException extends DaedongException {
 
     public static final DaedongException EXCEPTION = new CannotDeleteRecruitmentException();
 
-    private CannotDeleteRecruitmentException() {
+    public CannotDeleteRecruitmentException() {
         super(ErrorCode.CANNOT_DELETE_RECRUITMENT);
     }
 
