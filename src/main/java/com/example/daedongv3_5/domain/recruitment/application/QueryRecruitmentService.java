@@ -28,6 +28,7 @@ public class QueryRecruitmentService {
             .majors(new ArrayList<>(recruitment.getMajors()))
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
+                .clubName(recruitment.getClub().getClubName())
             .build();
     }
 
