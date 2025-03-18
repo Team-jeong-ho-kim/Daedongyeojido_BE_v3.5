@@ -18,7 +18,7 @@ public class RecruitmentRequest {
     private Long id;
 
     @NotNull
-    private Club clubName;
+    private String clubName;
 
     @NotBlank
     @Size(max = 300)
