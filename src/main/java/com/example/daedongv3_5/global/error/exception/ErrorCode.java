@@ -23,6 +23,7 @@ public enum ErrorCode {
     //club
     CLUB_NOT_FOUND(404, "존재하지 않는 동아리 입니다."),
     CANNOT_DELETE_CLUB(403, "삭제할 수 있는 권한이 없습니다"),
+    CANNOT_UPDATE_CLUB(403, "수정 권한이 없습니다"),
 
     // general
     BAD_REQUEST(400, "프론트 탓이 확실하다.."),
