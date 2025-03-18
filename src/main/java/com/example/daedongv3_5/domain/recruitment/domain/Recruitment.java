@@ -1,5 +1,6 @@
 package com.example.daedongv3_5.domain.recruitment.domain;
 
+import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
@@ -23,6 +24,10 @@ public class Recruitment extends BaseTimeEntity {
     private String phoneNumber;
 
     private String taskLink;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "club_name", nullable = false)
+    private Club club;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
