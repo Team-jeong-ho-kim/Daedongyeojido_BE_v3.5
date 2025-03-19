@@ -7,7 +7,7 @@ import com.example.daedongv3_5.global.error.exception.ErrorCode;
 public class CannotUpdateClubInfoException extends DaedongException {
     public static final CannotUpdateClubInfoException EXCEPTION = new CannotUpdateClubInfoException();
 
-    public CannotUpdateClubInfoException() {
+    private CannotUpdateClubInfoException() {
         super(ErrorCode.CANNOT_UPDATE_CLUB);
     }
 }

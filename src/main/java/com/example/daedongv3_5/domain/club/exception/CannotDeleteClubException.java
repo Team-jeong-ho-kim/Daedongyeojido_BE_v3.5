@@ -6,7 +6,7 @@ import com.example.daedongv3_5.global.error.exception.ErrorCode;
 public class CannotDeleteClubException extends DaedongException {
     public static final CannotDeleteClubException EXCEPTION = new CannotDeleteClubException();
 
-    public CannotDeleteClubException() {
+     private CannotDeleteClubException() {
         super(ErrorCode.CANNOT_DELETE_CLUB);
     }
 }
