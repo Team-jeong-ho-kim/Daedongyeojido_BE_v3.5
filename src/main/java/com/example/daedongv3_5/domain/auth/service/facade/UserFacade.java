@@ -21,7 +21,11 @@ public class UserFacade {
             throw new NotAuthenticatedException("인증 되지 않은 유저입니다.");
         }
 
-        return studentRepository.findByAccountId(authentication.getName())
+        String raw = SecurityContextHolder.getContext().getAuthentication().getName(); // "1:studentSecret"
+        String[] parts = raw.split(":");
+        Long userId = Long.valueOf(parts[0]); // 1
+
+        return studentRepository.findById(userId)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 }
