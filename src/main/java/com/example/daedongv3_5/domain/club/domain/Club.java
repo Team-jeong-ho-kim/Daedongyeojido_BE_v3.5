@@ -30,6 +30,9 @@ public class Club extends BaseTimeEntity {
 
     private String clubMember;
 
+    @Column(nullable = false)
+    private String createdBy;
+
     @ElementCollection(fetch = FetchType.LAZY)
     @Enumerated(EnumType.STRING)
     private List<Major> majors = new ArrayList<>();
