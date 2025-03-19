@@ -4,6 +4,7 @@ import com.example.daedongv3_5.domain.auth.service.facade.UserFacade;
 import com.example.daedongv3_5.domain.club.exception.CannotUpdateClubInfoException;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
 import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
+import com.example.daedongv3_5.domain.recruitment.exception.CannotUpdateRecruitmentException;
 import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundException;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import com.example.daedongv3_5.domain.student.domain.StudentEntity;
@@ -26,7 +27,7 @@ public class UpdateRecruitmentService {
         StudentEntity student = userFacade.currentUser();
 
         if (!recruitment.getCreatedBy().equals(student.getAccountId())) {
-            throw CannotUpdateClubInfoException.EXCEPTION;
+            throw CannotUpdateRecruitmentException.EXCEPTION;
         }
 
         recruitment.update(request);
