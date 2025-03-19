@@ -37,6 +37,9 @@ public class Recruitment extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private List<Major> majors = new ArrayList<>();
 
+    @Column(nullable = false)
+    private String createdBy;
+
     public void update(RecruitmentRequest request) {
         this.introduction = request.getIntroduction();
         this.phoneNumber = request.getPhoneNumber();

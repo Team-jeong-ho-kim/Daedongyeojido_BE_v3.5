@@ -23,8 +23,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) {
-        var parts = username.split(":");
+    public UserDetails loadUserByUsername(String accountId) {
+        var parts = accountId.split(":");
 
         var userId = parts[0];
         var userSecretId = parts[1];
@@ -38,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw InvalidTokenException.EXCEPTION;
         }
 
-        return new CustomUserDetails(userId, type);
+        return new CustomUserDetails(accountId, type);
     }
 
     private String handleTeacher(Long teacherId) {

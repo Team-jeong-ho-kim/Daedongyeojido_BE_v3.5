@@ -1,5 +1,6 @@
 package com.example.daedongv3_5.global.security.auth;
 
+import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-public record CustomUserDetails(String id, String role) implements UserDetails {
+public record CustomUserDetails(String accountId, String role) implements UserDetails {
     @Override
     public String getUsername() {
-        return id;
+        return accountId;
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -20,7 +21,7 @@ public record CustomUserDetails(String id, String role) implements UserDetails {
 
     @Override
     public String getPassword() {
-        return id;
+        return accountId;
     }
 
     @Override

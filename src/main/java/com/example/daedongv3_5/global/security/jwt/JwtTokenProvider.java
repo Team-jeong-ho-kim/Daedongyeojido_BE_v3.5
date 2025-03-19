@@ -34,12 +34,12 @@ public class JwtTokenProvider {
     private final RefreshTokenRepository refreshTokenRepository;
 
     // access token 생성
-    private String createAccessToken(String id, AuthElementDto.UserRole role) {
+    private String createAccessToken(String accountId, AuthElementDto.UserRole role) {
 
         Date now = new Date();
 
         return Jwts.builder()
-                .setSubject(id)
+                .setSubject(accountId)
                 .claim("type", "access")
                 .claim("user", getSecret(role))
                 .setIssuedAt(now)
@@ -48,7 +48,7 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    private String createRefreshToken(String id, AuthElementDto.UserRole role) {
+    private String createRefreshToken(String accountId, AuthElementDto.UserRole role) {
 
         Date now = new Date();
 
@@ -60,7 +60,7 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS256, jwtProperties.secretKey())
                 .compact();
 
-        refreshTokenRepository.save(new RefreshTokenEntity(id, role, refreshToken, jwtProperties.refreshExpiration()));
+        refreshTokenRepository.save(new RefreshTokenEntity(accountId, role, refreshToken, jwtProperties.refreshExpiration()));
 
         return refreshToken;
     }
@@ -98,14 +98,14 @@ public class JwtTokenProvider {
         }
     }
 
-    public TokenResponse receiveToken(String id, AuthElementDto.UserRole role) {
+    public TokenResponse receiveToken(String accountId, AuthElementDto.UserRole role) {
 
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
 
         return TokenResponse
                 .builder()
-                .accessToken(createAccessToken(id, role))
-                .refreshToken(createRefreshToken(id, role))
+                .accessToken(createAccessToken(accountId, role))
+                .refreshToken(createRefreshToken(accountId, role))
                 .accessExpiredAt(now.plusSeconds(jwtProperties.accessExpiration()).toEpochSecond())
                 .refreshExpiredAt(now.plusSeconds(jwtProperties.refreshExpiration()).toEpochSecond())
                 .build();
