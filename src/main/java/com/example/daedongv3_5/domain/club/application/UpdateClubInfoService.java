@@ -25,7 +25,7 @@ public class UpdateClubInfoService {
         StudentEntity student = userFacade.currentUser();
 
         if (!club.getCreatedBy().equals(student.getAccountId())) {
-            throw new CannotUpdateClubInfoException();
+            throw CannotUpdateClubInfoException.EXCEPTION;
         }
 
         club.update(request);

@@ -25,7 +25,7 @@ public class DeleteRecruitmentService {
         StudentEntity student = userFacade.currentUser();
 
         if (!recruitment.getCreatedBy().equals(student.getAccountId())) {
-            throw new CannotDeleteRecruitmentException();
+            throw CannotDeleteRecruitmentException.EXCEPTION;
         }
 
         recruitmentRepository.delete(recruitment);

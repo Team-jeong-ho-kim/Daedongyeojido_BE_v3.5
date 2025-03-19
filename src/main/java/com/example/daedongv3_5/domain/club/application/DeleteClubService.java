@@ -24,7 +24,7 @@ public class DeleteClubService {
         StudentEntity student = userFacade.currentUser();
 
         if (!club.getCreatedBy().equals(student.getAccountId())) {
-            throw new CannotDeleteClubException();
+            throw CannotDeleteClubException.EXCEPTION;
         }
 
         clubRepository.delete(club);
