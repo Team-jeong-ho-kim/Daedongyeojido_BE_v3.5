@@ -7,6 +7,7 @@ import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentR
 import com.example.daedongv3_5.domain.recruitment.exception.CannotUpdateRecruitmentException;
 import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundException;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
+import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.UpdateRecruitmentRequest;
 import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class UpdateRecruitmentService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void updateRecruitment(RecruitmentRequest request) {
+    public void updateRecruitment(UpdateRecruitmentRequest request) {
         Recruitment recruitment = recruitmentRepository.findById(request.getId())
                         .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
 
