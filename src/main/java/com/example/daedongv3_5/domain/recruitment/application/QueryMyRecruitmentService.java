@@ -3,12 +3,10 @@ package com.example.daedongv3_5.domain.recruitment.application;
 import com.example.daedongv3_5.domain.auth.service.facade.UserFacade;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
 import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
-import com.example.daedongv3_5.domain.recruitment.exception.CannotQueryRecruitmentException;
 import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundException;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.response.RecruitmentListResponse;
 import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.LifecycleState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,16 +23,15 @@ public class QueryMyRecruitmentService {
     public List<RecruitmentListResponse> queryMyRecruitment() {
         StudentEntity student = userFacade.currentUser();
 
-        Recruitment recruitment = recruitmentRepository.findRecruitmentByCreatedBy(student.getAccountId())
-                .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
+        List<Recruitment> recruitments = recruitmentRepository.findByCreatedBy(student.getAccountId());
 
-        if (!recruitment.getCreatedBy().equals(student.getAccountId())) {
-            throw CannotQueryRecruitmentException.EXCEPTION;
+        if (recruitments.isEmpty()) {
+            throw RecruitmentNotFoundException.EXCEPTION;
         }
 
         return recruitmentRepository.findByCreatedBy(student.getAccountId())
                 .stream()
-                .map(recruitment2 -> new RecruitmentListResponse(recruitment))
+                .map(RecruitmentListResponse::new)
                 .collect(Collectors.toList());
     }
 }
