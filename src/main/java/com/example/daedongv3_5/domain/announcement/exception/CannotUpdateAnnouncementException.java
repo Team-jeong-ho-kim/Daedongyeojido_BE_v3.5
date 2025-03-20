@@ -7,6 +7,6 @@ public class CannotUpdateAnnouncementException extends DaedongException {
     public static final CannotUpdateAnnouncementException EXCEPTION = new CannotUpdateAnnouncementException();
 
     public CannotUpdateAnnouncementException() {
-        super(ErrorCode.CANNOT_UPDATE_CLUB);
+        super(ErrorCode.CANNOT_UPDATE_ANNOUNCEMENT);
     }
 }

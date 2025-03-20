@@ -7,6 +7,6 @@ public class CannotDeleteAnnouncementException extends DaedongException {
     public static final CannotDeleteAnnouncementException EXCEPTION = new CannotDeleteAnnouncementException();
 
     public CannotDeleteAnnouncementException() {
-        super(ErrorCode.CANNOT_DELETE_CLUB);
+        super(ErrorCode.CANNOT_DELETE_ANNOUNCEMENT);
     }
 }
