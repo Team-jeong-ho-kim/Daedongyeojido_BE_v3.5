@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class DeleteAnnouncementService {
     private final AnnouncementRepository announcementRepository;
-    private final ClubRepository clubRepository;
     private final UserFacade userFacade;
 
     @Transactional
