@@ -47,9 +47,9 @@ public class RecruitmentController {
         return queryRecruitmentService.getRecruitmentById(id);
     }
 
-    @GetMapping("/list/{clubName}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<RecruitmentListResponse> queryRecruitmentList(@PathVariable String clubName) {
+    public List<RecruitmentListResponse> queryRecruitmentList(@RequestParam String clubName) {
         return queryRecruitmentListService.queryRecruitmentList(clubName);
     }
 
