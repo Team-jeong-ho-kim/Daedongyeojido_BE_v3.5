@@ -19,6 +19,7 @@ public enum ErrorCode {
     PASSWORD_MISMATCH(401, "비밀번호가 일치하지 않습니다."),
     INVALID_USER(401, "유효하지 않는 사용자입니다."),
     USER_ALREADY_TAKEN(401, "이미 유저가 있습니다"),
+    NO_PERMISSION(403, "권한이 없습니다"),
 
     //club
     CLUB_NOT_FOUND(404, "존재하지 않는 동아리 입니다."),
