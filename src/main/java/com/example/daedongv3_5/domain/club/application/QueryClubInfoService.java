@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
+import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +25,7 @@ public class QueryClubInfoService {
                 .clubName(club.getClubName())
                 .introduction(club.getIntroduction())
                 .oneLiner(club.getOneLiner())
-                .majors(Collections.unmodifiableList(club.getMajors()))
+                .majors(new ArrayList<>(club.getMajors()))
                 .build();
     }
 }

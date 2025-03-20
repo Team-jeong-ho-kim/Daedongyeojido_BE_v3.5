@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
+import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class QueryAnnouncementService {
                 .clubName(announcement.getClub().getClubName())
                 .idealTalent(announcement.getIdealTalent())
                 .interviewProject(announcement.getInterviewProject())
-                .majors(Collections.unmodifiableList(announcement.getMajors()))
+                .majors(new ArrayList<>(announcement.getMajors()))
                 .announcementStatus(announcement.getAnnouncementStatus())
                 .build();
     }

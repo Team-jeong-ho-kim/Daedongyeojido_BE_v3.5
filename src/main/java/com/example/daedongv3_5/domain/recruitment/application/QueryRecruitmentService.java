@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
+import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +25,7 @@ public class QueryRecruitmentService {
             .id(recruitment.getId())
             .introduction(recruitment.getIntroduction())
             .phoneNumber(recruitment.getPhoneNumber())
-                .majors(Collections.unmodifiableList(recruitment.getMajors()))
+                .majors(new ArrayList<>(recruitment.getMajors()))
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
                 .clubName(recruitment.getClub().getClubName())
