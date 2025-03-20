@@ -24,7 +24,7 @@ public class Announcement extends BaseTimeEntity {
     @Column(nullable = false, length = 300)
     private String introduction;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_name", nullable = false)
     private Club club;
 
