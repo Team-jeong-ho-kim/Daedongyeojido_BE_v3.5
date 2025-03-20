@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -25,7 +26,7 @@ public class ClubListResponse {
         this.introduction = club.getIntroduction();
         this.oneLiner = club.getOneLiner();
         this.clubMember = club.getClubMember();
-        this.majors = club.getMajors();
+        this.majors = new ArrayList<>(club.getMajors());
         this.createAt = club.getCreatedAt();
     }
 }
