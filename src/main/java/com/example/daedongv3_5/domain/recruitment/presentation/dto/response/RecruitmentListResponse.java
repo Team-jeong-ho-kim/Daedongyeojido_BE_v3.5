@@ -31,4 +31,5 @@ public class RecruitmentListResponse {
         this.clubName = recruitment.getClub().getClubName();
         this.applicantName = recruitment.getStudent().getName();
     }
+
 }
