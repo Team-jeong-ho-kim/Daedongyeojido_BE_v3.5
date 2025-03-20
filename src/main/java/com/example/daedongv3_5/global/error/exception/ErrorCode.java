@@ -58,6 +58,7 @@ public enum ErrorCode {
     CANNOT_UPDATE_RECRUITMENT(403, "지원서를 수정할 수 없습니다."),
     CANNOT_DELETE_RECRUITMENT(403, "지원서를 삭제할 수 없습니다."),
     CANNOT_CREATE_RECRUITMENT(403, "지원서를 생성할 수 없습니다"),
+    CANNOT_QUERY_RECRUITMENT(403, "지원서를 조회할 권한이 없습니다"),
 
     // announcement
     ANNOUNCEMENT_NOT_FOUND(404, "존재하지 않는 공고입니다."),
