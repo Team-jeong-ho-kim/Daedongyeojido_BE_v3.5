@@ -5,7 +5,7 @@ import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.repository.ClubRepository;
 import com.example.daedongv3_5.domain.club.exception.ClubNotFoundException;
 import com.example.daedongv3_5.domain.recruitment.domain.Recruitment;
-import com.example.daedongv3_5.domain.recruitment.domain.RecruitmentStatus;
+import com.example.daedongv3_5.domain.recruitment.domain.enums.RecruitmentStatus;
 import com.example.daedongv3_5.domain.recruitment.domain.repository.RecruitmentRepository;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import com.example.daedongv3_5.domain.student.domain.StudentEntity;

@@ -2,6 +2,7 @@ package com.example.daedongv3_5.domain.recruitment.domain;
 
 import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
+import com.example.daedongv3_5.domain.recruitment.domain.enums.RecruitmentStatus;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
