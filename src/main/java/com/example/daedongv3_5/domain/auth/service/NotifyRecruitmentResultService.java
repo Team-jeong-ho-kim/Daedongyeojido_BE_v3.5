@@ -1,4 +1,4 @@
-package com.example.daedongv3_5.domain.recruitment.application;
+package com.example.daedongv3_5.domain.auth.service;
 
 import com.example.daedongv3_5.domain.auth.exception.NoPermissionException;
 import com.example.daedongv3_5.domain.auth.service.facade.UserFacade;
@@ -12,6 +12,7 @@ import com.example.daedongv3_5.domain.recruitment.exception.RecruitmentNotFoundE
 import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,10 +21,11 @@ public class NotifyRecruitmentResultService {
     private final ClubRepository clubRepository;
     private final UserFacade userFacade;
 
-    public void pass() {
+    @Transactional
+    public void pass(Long id) {
         StudentEntity student = userFacade.currentUser();
 
-        Recruitment recruitment = recruitmentRepository.findRecruitmentByAccountId(student.getAccountId())
+        Recruitment recruitment = recruitmentRepository.findById(id)
                 .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
 
         Club club = clubRepository.findRecruitmentByClubName(recruitment.getClub().getClubName())
@@ -33,15 +35,14 @@ public class NotifyRecruitmentResultService {
             throw NoPermissionException.EXCEPTION;
         }
 
-        recruitmentRepository.save(Recruitment.builder()
-                .status(RecruitmentStatus.ACCEPTED)
-                .build());
+        recruitment.changeStatus(RecruitmentStatus.ACCEPTED);
     }
 
-    public void failed() {
+    @Transactional
+    public void failed(Long id) {
         StudentEntity student = userFacade.currentUser();
 
-        Recruitment recruitment = recruitmentRepository.findRecruitmentByAccountId(student.getAccountId())
+        Recruitment recruitment = recruitmentRepository.findById(id)
                 .orElseThrow(() -> RecruitmentNotFoundException.EXCEPTION);
 
         Club club = clubRepository.findRecruitmentByClubName(recruitment.getClub().getClubName())
@@ -51,8 +52,6 @@ public class NotifyRecruitmentResultService {
             throw NoPermissionException.EXCEPTION;
         }
 
-        recruitmentRepository.save(Recruitment.builder()
-                        .status(RecruitmentStatus.REJECTED)
-                .build());
+        recruitment.changeStatus(RecruitmentStatus.REJECTED);
     }
 }
