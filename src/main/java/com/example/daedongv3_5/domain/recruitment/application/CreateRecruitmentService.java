@@ -34,7 +34,7 @@ public class CreateRecruitmentService {
 
         StudentEntity student = userFacade.currentUser();
 
-        Announcement announcement = announcementRepository.findAnnouncementByClubName(request.getClubName())
+        Announcement announcement = announcementRepository.findAnnouncementByClub_ClubName(request.getClubName())
                 .orElseThrow(() -> AnnouncementNotFoundException.EXCEPTION);
 
         if (announcement.getAnnouncementStatus() != AnnouncementStatus.SubmissionPossible) {
@@ -49,6 +49,7 @@ public class CreateRecruitmentService {
                 .status(RecruitmentStatus.SUBMITTED)
                 .club(club)
                 .createdBy(student.getAccountId())
+                .student(student)
             .build());
     }
 
