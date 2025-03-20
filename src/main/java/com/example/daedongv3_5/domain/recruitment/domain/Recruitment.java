@@ -4,6 +4,8 @@ import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import com.example.daedongv3_5.domain.recruitment.domain.enums.RecruitmentStatus;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
+import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.UpdateRecruitmentRequest;
+import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import com.example.daedongv3_5.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,6 +29,10 @@ public class Recruitment extends BaseTimeEntity {
     private String taskLink;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "applicant_name", nullable = false)
+    private StudentEntity student;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_name", nullable = false)
     private Club club;
 
@@ -41,7 +47,7 @@ public class Recruitment extends BaseTimeEntity {
     @Column(nullable = false)
     private String createdBy;
 
-    public void update(RecruitmentRequest request) {
+    public void update(UpdateRecruitmentRequest request) {
         this.introduction = request.getIntroduction();
         this.phoneNumber = request.getPhoneNumber();
         this.taskLink = request.getTaskLink();

@@ -29,6 +29,7 @@ public class QueryRecruitmentService {
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
                 .clubName(recruitment.getClub().getClubName())
+                .applicantName(recruitment.getStudent().getName())
             .build();
     }
 
