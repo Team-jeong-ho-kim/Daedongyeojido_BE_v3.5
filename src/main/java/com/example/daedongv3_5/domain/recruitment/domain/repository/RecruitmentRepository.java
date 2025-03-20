@@ -11,6 +11,4 @@ public interface RecruitmentRepository extends JpaRepository<Recruitment, Long> 
     List<Recruitment> findRecruitmentByClub_ClubName(String clubName);
 
     List<Recruitment> findByCreatedBy(String createdBy);
-
-    Optional<Recruitment> findRecruitmentByCreatedBy(String createdBy);
 }
