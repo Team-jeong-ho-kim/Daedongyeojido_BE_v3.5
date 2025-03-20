@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class QueryRecruitmentService {
             .id(recruitment.getId())
             .introduction(recruitment.getIntroduction())
             .phoneNumber(recruitment.getPhoneNumber())
-            .majors(new ArrayList<>(recruitment.getMajors()))
+                .majors(Collections.unmodifiableList(recruitment.getMajors()))
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
                 .clubName(recruitment.getClub().getClubName())

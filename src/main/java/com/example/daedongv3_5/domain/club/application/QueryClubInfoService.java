@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class QueryClubInfoService {
                 .clubName(club.getClubName())
                 .introduction(club.getIntroduction())
                 .oneLiner(club.getOneLiner())
-                .majors(new ArrayList<>(club.getMajors()))
+                .majors(Collections.unmodifiableList(club.getMajors()))
                 .build();
     }
 }
