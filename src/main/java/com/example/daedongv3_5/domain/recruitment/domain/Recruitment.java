@@ -54,4 +54,8 @@ public class Recruitment extends BaseTimeEntity {
         this.majors = request.getMajors();
     }
 
+    public void changeStatus(RecruitmentStatus status) {
+        this.status = status;
+    }
+
 }
