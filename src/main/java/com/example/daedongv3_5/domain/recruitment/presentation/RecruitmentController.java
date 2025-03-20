@@ -22,6 +22,7 @@ public class RecruitmentController {
     private final DeleteRecruitmentService deleteRecruitmentService;
     private final QueryRecruitmentService queryRecruitmentService;
     private final QueryRecruitmentListService queryRecruitmentListService;
+    private final QueryMyRecruitmentService queryMyRecruitmentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -51,6 +52,12 @@ public class RecruitmentController {
     @ResponseStatus(HttpStatus.OK)
     public List<RecruitmentListResponse> queryRecruitmentList(@RequestParam String clubName) {
         return queryRecruitmentListService.queryRecruitmentList(clubName);
+    }
+
+    @GetMapping("/my")
+    @ResponseStatus(HttpStatus.OK)
+    public List<RecruitmentListResponse> queryMyRecruitment() {
+        return queryMyRecruitmentService.queryMyRecruitment();
     }
 
 }
