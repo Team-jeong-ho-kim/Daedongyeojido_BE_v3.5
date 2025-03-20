@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface RecruitmentRepository extends JpaRepository<Recruitment, Long> {
     List<Recruitment> findRecruitmentByClub_ClubName(String clubName);
 
-    Optional<Recruitment> findRecruitmentByAccountId(String accountId);
+    Optional<Recruitment> findRecruitmentByCreatedBy(String createdBy);
 }
