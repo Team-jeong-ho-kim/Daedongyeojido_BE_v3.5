@@ -15,9 +15,6 @@ import java.util.List;
 public class RecruitmentRequest {
 
     @NotNull
-    private Long id;
-
-    @NotNull
     private String clubName;
 
     @NotBlank
