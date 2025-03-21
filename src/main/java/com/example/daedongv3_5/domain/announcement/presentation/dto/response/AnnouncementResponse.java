@@ -4,6 +4,7 @@ import com.example.daedongv3_5.domain.announcement.domain.enums.AnnouncementStat
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import lombok.Builder;
 
+import java.time.LocalDate;
 import java.util.List;
 @Builder
 public record AnnouncementResponse(
@@ -12,6 +13,7 @@ public record AnnouncementResponse(
         String idealTalent,
         String interviewProject,
         List<Major>majors,
-        AnnouncementStatus announcementStatus
+        AnnouncementStatus announcementStatus,
+        LocalDate deadline
 ) {
 }

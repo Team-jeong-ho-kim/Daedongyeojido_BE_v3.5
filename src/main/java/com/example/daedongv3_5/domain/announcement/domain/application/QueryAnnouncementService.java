@@ -28,6 +28,7 @@ public class QueryAnnouncementService {
                 .interviewProject(announcement.getInterviewProject())
                 .majors(new ArrayList<>(announcement.getMajors()))
                 .announcementStatus(announcement.getAnnouncementStatus())
+                .deadline(announcement.getDeadline())
                 .build();
     }
 }

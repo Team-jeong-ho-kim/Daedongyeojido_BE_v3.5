@@ -6,6 +6,7 @@ import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class AnnouncementListResponse {
     private String interviewProject;
     private List<Major> majors;
     private AnnouncementStatus announcementStatus;
+    private LocalDate deadline;
     private LocalDateTime createAt;
 
     public AnnouncementListResponse(Announcement announcement) {
@@ -31,8 +33,8 @@ public class AnnouncementListResponse {
         this.interviewProject = announcement.getInterviewProject();
         this.majors = new ArrayList<>(announcement.getMajors());
         this.announcementStatus = announcement.getAnnouncementStatus();
+        this.deadline = announcement.getDeadline();
         this.createAt = announcement.getCreatedAt();
-
     }
 
 }
