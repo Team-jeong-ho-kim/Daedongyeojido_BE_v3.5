@@ -4,6 +4,7 @@ import com.example.daedongv3_5.domain.announcement.domain.Announcement;
 import com.example.daedongv3_5.domain.announcement.domain.enums.AnnouncementStatus;
 import com.example.daedongv3_5.domain.announcement.domain.repository.AnnouncementRepository;
 import com.example.daedongv3_5.domain.announcement.exception.AnnouncementNotFoundException;
+import com.example.daedongv3_5.domain.announcement.exception.DeadlineIsOverException;
 import com.example.daedongv3_5.domain.auth.service.facade.UserFacade;
 import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.repository.ClubRepository;
@@ -17,6 +18,8 @@ import com.example.daedongv3_5.domain.student.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +42,10 @@ public class CreateRecruitmentService {
 
         if (announcement.getAnnouncementStatus() != AnnouncementStatus.SubmissionPossible) {
             throw CannotCreateRecruitmentException.EXCEPTION;
+        }
+
+        if (announcement.getDeadline().isBefore(LocalDate.now())) {
+            throw DeadlineIsOverException.EXCEPTION;
         }
 
         recruitmentRepository.save(Recruitment.builder()
