@@ -19,11 +19,12 @@ public enum ErrorCode {
     PASSWORD_MISMATCH(401, "비밀번호가 일치하지 않습니다."),
     INVALID_USER(401, "유효하지 않는 사용자입니다."),
     USER_ALREADY_TAKEN(401, "이미 유저가 있습니다"),
+    NO_PERMISSION(403, "권한이 없습니다"),
 
     //club
     CLUB_NOT_FOUND(404, "존재하지 않는 동아리 입니다."),
-    CANNOT_DELETE_CLUB(403, "삭제할 수 있는 권한이 없습니다"),
-    CANNOT_UPDATE_CLUB(403, "수정 권한이 없습니다"),
+    CANNOT_DELETE_CLUB(403, "동아리를 삭제할 수 없습니다."),
+    CANNOT_UPDATE_CLUB(403, "동아리를 수정할 수 없습니다."),
 
     // general
     BAD_REQUEST(400, "프론트 탓이 확실하다.."),
@@ -56,7 +57,16 @@ public enum ErrorCode {
     // recruitment
     RECRUITMENT_NOT_FOUND(404, "해당하는 지원서를 찾을 수 없습니다."),
     CANNOT_UPDATE_RECRUITMENT(403, "지원서를 수정할 수 없습니다."),
-    CANNOT_DELETE_RECRUITMENT(403, "지원서를 삭제할 수 없습니다.");
+    CANNOT_DELETE_RECRUITMENT(403, "지원서를 삭제할 수 없습니다."),
+    CANNOT_CREATE_RECRUITMENT(403, "지원서를 생성할 수 없습니다"),
+    CANNOT_QUERY_RECRUITMENT(403, "지원서를 조회할 권한이 없습니다"),
+
+    // announcement
+    ANNOUNCEMENT_NOT_FOUND(404, "존재하지 않는 공고입니다."),
+    CANNOT_DELETE_ANNOUNCEMENT(403, "공고를 삭제할 수 없습니다."),
+    CANNOT_UPDATE_ANNOUNCEMENT(403, "공고를 수정할 수 없습니다."),
+    CANNOT_CREATE_ANNOUNCEMENT(403, "공고를 생성할 수 없습니다"),
+    DEADLINE_IS_OVER(400, "마감일이 지났습니다.");
 
     private final int statusCode;
     private final String message;

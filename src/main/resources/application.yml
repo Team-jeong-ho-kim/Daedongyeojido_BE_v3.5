@@ -54,5 +54,9 @@ jwt:
   accessExpiration: 3600
   refreshExpiration: 604800
   secretKey: ${JWT_SECRET_KEY}
-  teacherSecret: ${TEACHER_SECERT}
+  teacherSecret: ${TEACHER_SECRET}
   studentSecret: ${STUDENT_SECRET}
+
+logging:
+  level:
+    root: DEBUG

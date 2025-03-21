@@ -1,18 +1,19 @@
 package com.example.daedongv3_5.domain.recruitment.presentation.dto.request;
 
-import com.example.daedongv3_5.domain.club.domain.Club;
 import com.example.daedongv3_5.domain.club.domain.enums.Major;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Getter
-@NoArgsConstructor
-public class RecruitmentRequest {
+@AllArgsConstructor
+public class UpdateRecruitmentRequest {
+    @NotNull
+    private Long id;
 
     @NotNull
     private String clubName;
@@ -29,5 +30,4 @@ public class RecruitmentRequest {
 
     @NotNull(message = "1개 이상의 전공을 선택해주세요.")
     private List<Major> majors;
-
 }

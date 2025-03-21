@@ -1,15 +1,16 @@
 package com.example.daedongv3_5.domain.recruitment.presentation;
 
-import com.example.daedongv3_5.domain.recruitment.application.CreateRecruitmentService;
-import com.example.daedongv3_5.domain.recruitment.application.DeleteRecruitmentService;
-import com.example.daedongv3_5.domain.recruitment.application.QueryRecruitmentService;
-import com.example.daedongv3_5.domain.recruitment.application.UpdateRecruitmentService;
+import com.example.daedongv3_5.domain.recruitment.application.*;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.RecruitmentRequest;
+import com.example.daedongv3_5.domain.recruitment.presentation.dto.request.UpdateRecruitmentRequest;
+import com.example.daedongv3_5.domain.recruitment.presentation.dto.response.RecruitmentListResponse;
 import com.example.daedongv3_5.domain.recruitment.presentation.dto.response.RecruitmentResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/recruitment")
@@ -20,6 +21,8 @@ public class RecruitmentController {
     private final UpdateRecruitmentService updateRecruitmentService;
     private final DeleteRecruitmentService deleteRecruitmentService;
     private final QueryRecruitmentService queryRecruitmentService;
+    private final QueryRecruitmentListService queryRecruitmentListService;
+    private final QueryMyRecruitmentService queryMyRecruitmentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -29,7 +32,7 @@ public class RecruitmentController {
 
     @PatchMapping
     @ResponseStatus(HttpStatus.OK)
-    public void updateRecruitment(@RequestBody @Valid RecruitmentRequest request) {
+    public void updateRecruitment(@RequestBody @Valid UpdateRecruitmentRequest request) {
         updateRecruitmentService.updateRecruitment(request);
     }
 
@@ -43,6 +46,18 @@ public class RecruitmentController {
     @ResponseStatus(HttpStatus.OK)
     public RecruitmentResponse getRecruitment(@PathVariable Long id) {
         return queryRecruitmentService.getRecruitmentById(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<RecruitmentListResponse> queryRecruitmentList(@RequestParam String clubName) {
+        return queryRecruitmentListService.queryRecruitmentList(clubName);
+    }
+
+    @GetMapping("/my")
+    @ResponseStatus(HttpStatus.OK)
+    public List<RecruitmentListResponse> queryMyRecruitment() {
+        return queryMyRecruitmentService.queryMyRecruitment();
     }
 
 }
