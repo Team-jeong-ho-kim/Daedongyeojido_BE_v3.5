@@ -40,6 +40,7 @@ public class CreateAnnouncementService {
                         .announcementStatus(AnnouncementStatus.SubmissionPossible)
                         .createdBy(student.getAccountId())
                         .majors(request.getMajors())
+                        .deadline(request.getDeadline())
                 .build());
     }
 }
