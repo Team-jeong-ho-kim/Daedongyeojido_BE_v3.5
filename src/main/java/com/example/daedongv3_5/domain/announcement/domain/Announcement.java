@@ -11,6 +11,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,9 @@ public class Announcement extends BaseTimeEntity {
     private String interviewProject;
 
     @Column(nullable = false)
+    private LocalDate deadline;
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AnnouncementStatus announcementStatus;
 
@@ -50,6 +54,7 @@ public class Announcement extends BaseTimeEntity {
         this.idealTalent = request.getIdealTalent();
         this.interviewProject = request.getInterviewProject();
         this.majors = request.getMajors();
+        this.deadline = request.getDeadline();
     }
 
 }
