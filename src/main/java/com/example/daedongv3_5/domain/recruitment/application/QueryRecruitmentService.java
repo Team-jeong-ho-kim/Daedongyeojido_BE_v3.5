@@ -25,10 +25,11 @@ public class QueryRecruitmentService {
             .id(recruitment.getId())
             .introduction(recruitment.getIntroduction())
             .phoneNumber(recruitment.getPhoneNumber())
-            .majors(new ArrayList<>(recruitment.getMajors()))
+                .majors(new ArrayList<>(recruitment.getMajors()))
             .taskLink(recruitment.getTaskLink())
             .status(recruitment.getStatus())
                 .clubName(recruitment.getClub().getClubName())
+                .applicantName(recruitment.getStudent().getName())
             .build();
     }
 
