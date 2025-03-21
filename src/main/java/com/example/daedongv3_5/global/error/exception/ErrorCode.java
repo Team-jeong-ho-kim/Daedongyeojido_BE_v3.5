@@ -65,7 +65,8 @@ public enum ErrorCode {
     ANNOUNCEMENT_NOT_FOUND(404, "존재하지 않는 공고입니다."),
     CANNOT_DELETE_ANNOUNCEMENT(403, "공고를 삭제할 수 없습니다."),
     CANNOT_UPDATE_ANNOUNCEMENT(403, "공고를 수정할 수 없습니다."),
-    CANNOT_CREATE_ANNOUNCEMENT(403, "공고를 생성할 수 없습니다");
+    CANNOT_CREATE_ANNOUNCEMENT(403, "공고를 생성할 수 없습니다"),
+    DEADLINE_IS_OVER(400, "마감일이 지났습니다.");
 
     private final int statusCode;
     private final String message;
