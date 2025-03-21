@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -25,4 +27,7 @@ public class UpdateAnnouncementRequest {
 
     @Size(max = 100)
     private String interviewProject;
+
+    @NotNull
+    private LocalDate deadline;
 }
