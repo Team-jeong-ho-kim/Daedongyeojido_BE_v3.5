@@ -1,6 +1,5 @@
 package com.example.daedongv3_5.global.security;
 
-import com.example.daedongv3_5.global.security.SecurityFilterConfig;
 import com.example.daedongv3_5.global.security.jwt.JwtTokenProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
